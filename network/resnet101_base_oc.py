@@ -24,20 +24,20 @@ affine_par = True
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, '../utils'))
-from resnet_block import conv3x3, Bottleneck
+from utils.resnet_block import conv3x3, Bottleneck
 sys.path.append(os.path.join(BASE_DIR, '../oc_module'))
-from base_oc_block import BaseOC_Module
+from oc_module.base_oc_block import BaseOC_Module
 
 torch_ver = torch.__version__[:3]
 
 if torch_ver == '0.4':
     sys.path.append(os.path.join(BASE_DIR, '../inplace_abn'))
-    from bn import InPlaceABNSync
+    from inplace_abn.bn import InPlaceABNSync
     BatchNorm2d = functools.partial(InPlaceABNSync, activation='none')
     
 elif torch_ver == '0.3':
     sys.path.append(os.path.join(BASE_DIR, '../inplace_abn_03'))
-    from modules import InPlaceABNSync
+    from inplace_abn_03.modules import InPlaceABNSync
     BatchNorm2d = functools.partial(InPlaceABNSync, activation='none')    
 
 

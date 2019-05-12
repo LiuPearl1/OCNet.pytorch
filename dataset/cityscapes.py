@@ -348,10 +348,10 @@ class CitySegmentationTrainWpath(data.Dataset):
 
 
 if __name__ == '__main__':
-    dst = CitySegmentationTrain("./cityscapes/", "./list/cityscapes/trainval.lst", crop_size=(1024, 2048))
+    dst = CitySegmentationTrain("/home/pearl/Documents/cityscapes/", "/home/pearl/Documents/cityscapes/train.txt", crop_size=(1024, 2048))
     trainloader = data.DataLoader(dst, batch_size=1, num_workers=0)
 
-    with open("./list/cityscapes/trainval.lst") as f:
+    with open("/home/pearl/Documents/cityscapes/train.txt") as f:
         train_list = f.readlines()
     train_list = [x.strip() for x in train_list] 
 

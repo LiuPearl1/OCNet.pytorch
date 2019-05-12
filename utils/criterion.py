@@ -11,7 +11,7 @@ from torch.autograd import Variable
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(BASE_DIR, '../utils'))
-from loss import OhemCrossEntropy2d, CrossEntropy2d
+from utils.loss import OhemCrossEntropy2d, CrossEntropy2d
 import scipy.ndimage as nd
 
 torch_ver = torch.__version__[:3]

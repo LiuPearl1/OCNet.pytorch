@@ -17,15 +17,15 @@ class Parameters():
         parser = argparse.ArgumentParser(description="Pytorch Segmentation Network")
         parser.add_argument("--dataset", type=str, default="cityscapes_train",
                             help="Specify the dataset to use.")
-        parser.add_argument("--batch-size", type=int, default=8,
+        parser.add_argument("--batch-size", type=int, default=2,
                             help="Number of images sent to the network in one step.")
-        parser.add_argument("--data-dir", type=str, default='/teamscratch/msravcshare/yuyua/deeplab_v3/dataset/cityscapes',
+        parser.add_argument("--data-dir", type=str, default='/home/pearl/Documents/cityscapes',
                             help="Path to the directory containing the PASCAL VOC dataset.")
-        parser.add_argument("--data-list", type=str, default='./dataset/list/cityscapes/train.lst',
+        parser.add_argument("--data-list", type=str, default='/home/pearl/Documents/cityscapes/train.txt',
                             help="Path to the file listing the images in the dataset.")
         parser.add_argument("--ignore-label", type=int, default=255,
                             help="The index of the label to ignore during the training.")
-        parser.add_argument("--input-size", type=str, default='769,769',
+        parser.add_argument("--input-size", type=str, default='513,513',
                             help="Comma-separated string with height and width of images.")
         parser.add_argument("--is-training", action="store_true",
                             help="Whether to updates the running means and variances during the training.")
@@ -49,7 +49,7 @@ class Parameters():
                             help="Whether to randomly scale the inputs during the training.")
         parser.add_argument("--random-seed", type=int, default=304,
                             help="Random seed to have reproducible results.")
-        parser.add_argument("--restore-from", type=str, default='./pretrain_model/MS_DeepLab_resnet_pretrained_COCO_init.pth',
+        parser.add_argument("--restore-from", type=str, default='/home/pearl/OCNet.pytorch/pretrained/resnet101-imagenet.pth',
                             help="Where restore model parameters from.")
         parser.add_argument("--save-num-images", type=int, default=2,
                             help="How many images to save.")
@@ -75,12 +75,12 @@ class Parameters():
         parser.add_argument("--use-extra", type=str2bool, nargs='?', const=True,
                             help="choose whether to use the extra set to train.")
         parser.add_argument("--ohem", type=str2bool, nargs='?', const=True,
-                            help="choose whether conduct ohem.")
+                            help="choose whether conduct /home/pearl/Documents/cityscapes.")
         parser.add_argument("--ohem-keep", type=int, default=100000,
                             help="choose the samples with correct probability underthe threshold.")
         parser.add_argument("--network", type=str, default='resnet101',
                             help="choose which network to use.")
-        parser.add_argument("--method", type=str, default='base', 
+        parser.add_argument("--method", type=str, default='base_oc_dsn',
                             help="choose method to train.")
         parser.add_argument("--reduce", action="store_false",
                             help="Whether to use reduce when computing the cross entropy loss.")
